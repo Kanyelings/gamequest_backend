@@ -1,0 +1,6 @@
+# Environment
+chatenv/
+.env
+
+*__pycache__*
+game_app/migrations/
