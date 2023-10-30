@@ -31,7 +31,7 @@ class LoginView(APIView):
         gender = request.POST["gender"]
         username = request.POST["username"]
         password = request.POST["password"]
-        user = User.objects.create_user(username=username, password=password, gender=gender)
+        user = User.objects.get(username=username, password=password, gender=gender)
         if not user:
             return JsonResponse({'error': 'User does not exist'}, status=status.HTTP_404_NOT_FOUND)
         token, created = Token.objects.get_or_create(user=user)
